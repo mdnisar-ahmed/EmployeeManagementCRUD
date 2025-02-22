@@ -1,16 +1,19 @@
 import { Component, type OnInit, ViewChild } from "@angular/core"
-import { MatTableDataSource } from "@angular/material/table"
-import { MatPaginator } from "@angular/material/paginator"
-import { MatSort } from "@angular/material/sort"
-import type { MatDialog } from "@angular/material/dialog"
-import type { MatSnackBar } from "@angular/material/snack-bar"
-import type { Employee } from "../../shared/employee.model"
-import type { EmployeeService } from "../employee.service"
+import { MatTableDataSource, MatTableModule } from "@angular/material/table"
+import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator"
+import { MatSort, MatSortModule } from "@angular/material/sort"
+import  { MatDialog } from "@angular/material/dialog"
+import  { MatSnackBar } from "@angular/material/snack-bar"
+import  { Employee } from "../../shared/employee.model"
+import { EmployeeService } from "../employee.service"
 import { EmployeeFormDialogComponent } from "../employee-form-dialog/employee-form-dialog.component"
-import { ConfirmDialogComponent } from "../../shared/confirm-dialog.component.ts"
-
+import { ConfirmDialogComponentTsComponent } from "../../shared/confirm-dialog.component.ts/confirm-dialog.component"
+import { CommonModule } from "@angular/common"
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: "app-employee-list",
+  imports:[CommonModule, MatTableModule, MatPaginatorModule, MatSortModule,MatIconModule,MatInputModule],
   templateUrl: "./employee-list.component.html",
   styleUrls: ["./employee-list.component.css"],
 })
@@ -100,7 +103,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   deleteEmployee(employee: Employee) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    const dialogRef = this.dialog.open(ConfirmDialogComponentTsComponent, {
       width: "250px",
       data: { message: "Are you sure you want to delete this employee?" },
     })

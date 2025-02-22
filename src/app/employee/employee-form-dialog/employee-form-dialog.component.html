@@ -4,26 +4,26 @@
     <mat-form-field>
       <mat-label>First Name</mat-label>
       <input matInput formControlName="firstName" required>
-      <mat-error *ngIf="employeeForm.get('firstName').hasError('required')">First Name is required</mat-error>
+      <mat-error *ngIf="employeeForm.get('firstName')?.hasError('required')">First Name is required</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="lastName" required>
-      <mat-error *ngIf="employeeForm.get('lastName').hasError('required')">Last Name is required</mat-error>
+      <mat-error *ngIf="employeeForm.get('lastName')?.hasError('required')">Last Name is required</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" required>
-      <mat-error *ngIf="employeeForm.get('email').hasError('required')">Email is required</mat-error>
-      <mat-error *ngIf="employeeForm.get('email').hasError('email')">Invalid email format</mat-error>
+      <mat-error *ngIf="employeeForm.get('email')?.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="employeeForm.get('email')?.hasError('email')">Invalid email format</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Position</mat-label>
       <input matInput formControlName="position" required>
-      <mat-error *ngIf="employeeForm.get('position').hasError('required')">Position is required</mat-error>
+      <mat-error *ngIf="employeeForm.get('position')?.hasError('required')">Position is required</mat-error>
     </mat-form-field>
   </mat-dialog-content>
 
