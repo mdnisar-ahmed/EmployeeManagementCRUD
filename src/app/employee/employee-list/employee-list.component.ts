@@ -7,13 +7,15 @@ import  { MatSnackBar } from "@angular/material/snack-bar"
 import  { Employee } from "../../shared/employee.model"
 import { EmployeeService } from "../employee.service"
 import { EmployeeFormDialogComponent } from "../employee-form-dialog/employee-form-dialog.component"
-import { ConfirmDialogComponentTsComponent } from "../../shared/confirm-dialog.component.ts/confirm-dialog.component"
+import { ConfirmDialogComponent } from "../../shared/confirm-dialog/confirm-dialog.component"
 import { CommonModule } from "@angular/common"
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
 @Component({
   selector: "app-employee-list",
-  imports:[CommonModule, MatTableModule, MatPaginatorModule, MatSortModule,MatIconModule,MatInputModule],
+  imports:[CommonModule, MatTableModule, MatPaginatorModule, MatSortModule,MatIconModule,MatInputModule,MatButtonModule],
   templateUrl: "./employee-list.component.html",
   styleUrls: ["./employee-list.component.css"],
 })
@@ -103,7 +105,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   deleteEmployee(employee: Employee) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponentTsComponent, {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: "250px",
       data: { message: "Are you sure you want to delete this employee?" },
     })

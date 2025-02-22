@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Employee Management</h1>
   
-    <button mat-raised-button color="primary" (click)="openEmployeeDialog()">Add Employee</button>
+    <button mat-flat-button color="primary" (click)="openEmployeeDialog()">Add Employee</button>
   
     <mat-form-field>
       <mat-label>Filter</mat-label>
@@ -36,9 +36,11 @@
             <button mat-icon-button color="primary" (click)="openEmployeeDialog(row)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn" (click)="deleteEmployee(row)">
-              <mat-icon>delete</mat-icon>
+            <div aria-hidden="true">
+            <button color="warn" (click)="deleteEmployee(row)">
+              <i class="fa-solid fa-trash"></i>
             </button>
+          </div>
           </td>
         </ng-container>
   
